@@ -40,7 +40,6 @@ conda search gdb --channel conda-forge
 ```
 
 
-
 About conda-forge
 =================
 
