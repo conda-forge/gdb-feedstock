@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Download the right script to debug python processes
-curl -SL https://hg.python.org/cpython/raw-file/$PY_VER/Tools/gdb/libpython.py \
+curl -SL https://raw.githubusercontent.com/python/cpython/$PY_VER/Tools/gdb/libpython.py \
     > "$SP_DIR/libpython.py"
 
 # Install a gdbinit file that will be automatically loaded
