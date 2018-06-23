@@ -17,15 +17,18 @@ build:
 
 requirements:
   build:
+    - {{ compiler('fortran') }}
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
     - python
-    - ncurses 5.9*
+    - ncurses
     - texinfo
-    - toolchain
-    - xz 5.2.*
+    - xz
   run:
     - python
-    - ncurses 5.9*
-    - xz 5.2.*
+    - ncurses
+    - xz
 
 test:
   commands:
