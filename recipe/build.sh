@@ -5,6 +5,7 @@ curl -SL https://raw.githubusercontent.com/python/cpython/$PY_VER/Tools/gdb/libp
     > "$SP_DIR/libpython.py"
 
 # Install a gdbinit file that will be automatically loaded
+mkdir -p "$PREFIX/etc"
 echo '
 python
 import gdb
