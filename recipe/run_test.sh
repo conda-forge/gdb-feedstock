@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "CONDA_PY:$CONDA_PY"
+
 gdb -batch -ex "run" -ex "py-bt" --args python "$RECIPE_DIR/testing/process_to_debug.py" | tee gdb_output
 if [[ "$CONDA_PY" != "27" ]]; then
     grep "built-in method kill" gdb_output
