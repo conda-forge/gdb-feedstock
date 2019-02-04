@@ -1,17 +1,15 @@
-build_number_decrement:
-- '1000'
 c_compiler:
-- toolchain_c
+- gcc
 channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- toolchain_cxx
+- gxx
 docker_image:
-- condaforge/linux-anvil
+- condaforge/linux-anvil-comp7
 fortran_compiler:
-- toolchain_fort
+- gfortran
 ncurses:
 - '6.1'
 pin_run_as_build:
@@ -23,14 +21,6 @@ pin_run_as_build:
   xz:
     max_pin: x.x
 python:
-- '2.7'
+- '3.7'
 xz:
 - '5.2'
-zip_keys:
-- - c_compiler
-  - cxx_compiler
-  - fortran_compiler
-  - channel_sources
-  - channel_targets
-  - docker_image
-  - build_number_decrement
