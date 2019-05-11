@@ -1,6 +1,6 @@
 {% set name = "gdb" %}
-{% set version = "8.2" %}
-{% set sha256 = "c3a441a29c7c89720b734e5a9c6289c0a06be7e0c76ef538f7bbcef389347c39" %}
+{% set version = "8.3" %}
+{% set sha256 = "802f7ee309dcc547d65a68d61ebd6526762d26c3051f52caebe2189ac1ffd72e" %}
 
 package:
   name: {{ name }}
