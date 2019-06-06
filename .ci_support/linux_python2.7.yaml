@@ -1,15 +1,21 @@
 c_compiler:
-- toolchain_c
+- gcc
+c_compiler_version:
+- '7'
 channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- toolchain_cxx
+- gxx
+cxx_compiler_version:
+- '7'
 docker_image:
-- condaforge/linux-anvil
+- condaforge/linux-anvil-comp7
 fortran_compiler:
-- toolchain_fort
+- gfortran
+fortran_compiler_version:
+- '7'
 ncurses:
 - '6.1'
 pin_run_as_build:

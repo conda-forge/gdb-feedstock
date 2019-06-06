@@ -1,15 +1,21 @@
 c_compiler:
-- toolchain_c
+- gcc
+c_compiler_version:
+- '8'
 channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- toolchain_cxx
+- gxx
+cxx_compiler_version:
+- '8'
 docker_image:
-- condaforge/linux-anvil
+- condaforge/linux-anvil-ppc64le
 fortran_compiler:
-- toolchain_fort
+- gfortran
+fortran_compiler_version:
+- '8'
 ncurses:
 - '6.1'
 pin_run_as_build:
@@ -21,6 +27,6 @@ pin_run_as_build:
   xz:
     max_pin: x.x
 python:
-- '3.5'
+- '3.7'
 xz:
 - '5.2'
