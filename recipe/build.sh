@@ -25,6 +25,6 @@ export LDFLAGS="-L$PREFIX/lib"
     --prefix="$PREFIX" \
     --with-separate-debug-dir="$PREFIX/lib/debug:/usr/lib/debug" \
     --with-python \
-    --with-system-gdbinit="$PREFIX/etc/gdbinit"
+    --with-system-gdbinit="$PREFIX/etc/gdbinit" || cat config.log
 make -j${CPU_COUNT}
 make install
