@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -x
+
 echo "CONDA_PY:$CONDA_PY"
 export CONDA_PY=`python -c "import sys;print('%s%s'%sys.version_info[:2])"`
 echo "CONDA_PY:$CONDA_PY"
