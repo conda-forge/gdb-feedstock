@@ -17,14 +17,13 @@ gdb.events.new_objfile.connect(setup_python)
 end
 ' >> "$PREFIX/etc/gdbinit"
 
-export CFLAGS="-I$PREFIX/include"
-export LDFLAGS="-L$PREFIX/lib"
+export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
 # Setting /usr/lib/debug as debug dir makes it possible to debug the system's
 # python on most Linux distributions
 ./configure \
     --prefix="$PREFIX" \
     --with-separate-debug-dir="$PREFIX/lib/debug:/usr/lib/debug" \
     --with-python \
-    --with-system-gdbinit="$PREFIX/etc/gdbinit"
+    --with-system-gdbinit="$PREFIX/etc/gdbinit" || (cat config.log && exit 1)
 make -j${CPU_COUNT}
 make install
