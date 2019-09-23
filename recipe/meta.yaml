@@ -10,7 +10,7 @@ source:
   sha256: 1e55b4d7cdca7b34be12f4ceae651623aa73b2fd640152313f9f66a7149757c4
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
 
 requirements:
@@ -29,6 +29,7 @@ requirements:
     - ncurses
     - xz
     - zlib
+    - libiconv  # [osx]
 
 test:
   commands:
