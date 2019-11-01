@@ -3,7 +3,7 @@ About gdb
 
 Home: https://www.gnu.org/software/gdb/
 
-Package license: GPL
+Package license: GPL-2.0
 
 Feedstock license: BSD 3-Clause
 
@@ -54,6 +54,13 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3908&branchName=master">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gdb-feedstock?branchName=master&jobName=linux&configuration=linux_python3.7" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_python3.8</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3908&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gdb-feedstock?branchName=master&jobName=linux&configuration=linux_python3.8" alt="variant">
                 </a>
               </td>
             </tr>
@@ -175,4 +182,5 @@ Feedstock Maintainers
 =====================
 
 * [@gqmelo](https://github.com/gqmelo/)
+* [@marcelotrevisani](https://github.com/marcelotrevisani/)
 
