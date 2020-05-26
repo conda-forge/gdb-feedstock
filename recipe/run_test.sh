@@ -1,6 +1,16 @@
 #!/usr/bin/env bash -ex
 
-# This test tries to simulate a crash on a python process. The process under test
+# Make sure we are not prompted for a password before running an executable in GDB on macOS
+if [[ $(uname) == "Darwin" ]]; then
+  sudo /usr/sbin/DevToolsSecurity -enable
+  sudo security authorizationdb write system.privilege.taskport allow
+fi
+
+# Run hello world test
+$CC -o hello -g "$RECIPE_DIR/testing/hello.c"
+gdb -batch -ex "run" --args hello
+
+# This next test tries to simulate a crash on a python process. The process under test
 # forces a crash by emitting a SIGSEGV signal to itself. This is similar to what
 # would happen on a python code calling a C/C++ module which causes a seg fault.
 # When that happens we should be able to use the python extensions for gdb to get
@@ -18,6 +28,13 @@
 echo "CONDA_PY:$CONDA_PY"
 export CONDA_PY=`python -c "import sys;print('%s%s'%sys.version_info[:2])"`
 echo "CONDA_PY:$CONDA_PY"
+
+if [[ $(uname) == "Darwin" ]]; then
+  # Skip python test on macOS, since the Python executable is missing debug symbols.
+  # see https://github.com/conda-forge/gdb-feedstock/pull/23/#issuecomment-643008755
+  # and https://github.com/conda-forge/python-feedstock/issues/354
+  exit 0
+fi
 
 gdb -batch -ex "run" -ex "py-bt" --args python "$RECIPE_DIR/testing/process_to_debug.py" | tee gdb_output
 if [[ "$CONDA_PY" != "27" ]]; then
