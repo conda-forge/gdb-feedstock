@@ -52,7 +52,7 @@ fi
 # This list is mostly for documentation purposes, so we know exactly which versions can be
 # debugged out-of-the-box with this gdb package. When things change, there is not much to be
 # done besides adding or removing versions from this list.
-insufficient_debug_info_versions=("27" "36")
+insufficient_debug_info_versions=("36")
 
 if [[ " ${insufficient_debug_info_versions[@]} " =~ " ${CONDA_PY} " ]]; then
     if grep "line 3" gdb_output; then
