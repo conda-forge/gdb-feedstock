@@ -48,9 +48,9 @@ test:
 
 about:
   home: https://www.gnu.org/software/gdb/
-  license: GPL-2.0-only
+  license: GPL-3.0-only
   license_family: GPL
-  license_file: COPYING
+  license_file: gdb/COPYING
   summary: GDB, the GNU Project debugger, allows you to see what is going on inside another program while it executes -- or what another program was doing at the moment it crashed.
   description: |
     GDB, the GNU Project debugger, allows you to see what is going on `inside'
