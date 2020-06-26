@@ -24,11 +24,13 @@ requirements:
     - texinfo
     - xz
     - zlib
+    - six
   run:
     - python
     - ncurses
     - xz
     - zlib
+    - six
 
 test:
   commands:
