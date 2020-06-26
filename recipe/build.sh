@@ -24,7 +24,7 @@ export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
 mkdir build
 cd build
 
-.././configure \
+$SRC_DIR/configure \
     --prefix="$PREFIX" \
     --with-separate-debug-dir="$PREFIX/lib/debug:/usr/lib/debug" \
     --with-python \
