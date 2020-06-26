@@ -8,6 +8,8 @@ package:
 source:
   url: http://ftp.gnu.org/gnu/gdb/gdb-{{ version }}.tar.xz
   sha256: 360cd7ae79b776988e89d8f9a01c985d0b1fa21c767a4295e5f88cb49175c555
+  patches:
+    - 0001-darwin-nat.c-do-not-hang-on-long-gone-thread.patch
 
 build:
   number: 3
