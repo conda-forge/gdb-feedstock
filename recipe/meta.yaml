@@ -25,6 +25,7 @@ requirements:
     - xz
     - zlib
     - six
+    - readline
   run:
     - python
     - ncurses
