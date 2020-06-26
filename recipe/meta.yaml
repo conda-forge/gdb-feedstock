@@ -18,13 +18,13 @@ requirements:
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - make >=3.82
   host:
     - python
     - ncurses
     - texinfo
     - xz
     - zlib
-    - six
     - readline
   run:
     - python
