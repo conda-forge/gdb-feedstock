@@ -20,7 +20,11 @@ end
 export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
 # Setting /usr/lib/debug as debug dir makes it possible to debug the system's
 # python on most Linux distributions
-./configure \
+
+mkdir build
+cd build
+
+.././configure \
     --prefix="$PREFIX" \
     --with-separate-debug-dir="$PREFIX/lib/debug:/usr/lib/debug" \
     --with-python \
