@@ -29,5 +29,5 @@ $SRC_DIR/configure \
     --with-separate-debug-dir="$PREFIX/lib/debug:/usr/lib/debug" \
     --with-python=${PYTHON} \
     --with-system-gdbinit="$PREFIX/etc/gdbinit" || (cat config.log && exit 1)
-make -j${CPU_COUNT} VERBOSE=1
+make -j1 VERBOSE=1
 make install
