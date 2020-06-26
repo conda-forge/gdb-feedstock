@@ -1,5 +1,5 @@
 {% set name = "gdb" %}
-{% set version = "8.3.1" %}
+{% set version = "9.2" %}
 
 package:
   name: {{ name }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: http://ftp.gnu.org/gnu/gdb/gdb-{{ version }}.tar.xz
-  sha256: 1e55b4d7cdca7b34be12f4ceae651623aa73b2fd640152313f9f66a7149757c4
+  sha256: 360cd7ae79b776988e89d8f9a01c985d0b1fa21c767a4295e5f88cb49175c555
 
 build:
-  number: 1
+  number: 0
   skip: True  # [win or osx]
 
 requirements:
@@ -18,17 +18,20 @@ requirements:
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - make >=3.82
   host:
     - python
     - ncurses
     - texinfo
     - xz
     - zlib
+    - readline
   run:
     - python
     - ncurses
     - xz
     - zlib
+    - six
 
 test:
   commands:
@@ -36,7 +39,7 @@ test:
 
 about:
   home: https://www.gnu.org/software/gdb/
-  license: GPL-2.0
+  license: GPL-2.0-only
   license_family: GPL
   license_file: COPYING
   summary: GDB, the GNU Project debugger, allows you to see what is going on inside another program while it executes -- or what another program was doing at the moment it crashed.
@@ -55,3 +58,4 @@ extra:
   recipe-maintainers:
     - gqmelo
     - marcelotrevisani
+    - phil-blain

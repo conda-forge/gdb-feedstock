@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Download the right script to debug python processes
-curl -SL https://raw.githubusercontent.com/python/cpython/$PY_VER/Tools/gdb/libpython.py \
-    > "$SP_DIR/libpython.py"
 
 # Install a gdbinit file that will be automatically loaded
 mkdir -p "$PREFIX/etc"
@@ -20,10 +17,14 @@ end
 export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
 # Setting /usr/lib/debug as debug dir makes it possible to debug the system's
 # python on most Linux distributions
-./configure \
+
+mkdir build
+cd build
+
+$SRC_DIR/configure \
     --prefix="$PREFIX" \
     --with-separate-debug-dir="$PREFIX/lib/debug:/usr/lib/debug" \
-    --with-python \
+    --with-python=${PYTHON} \
     --with-system-gdbinit="$PREFIX/etc/gdbinit" || (cat config.log && exit 1)
-make -j${CPU_COUNT}
+make -j${CPU_COUNT}  VERBOSE=1
 make install
