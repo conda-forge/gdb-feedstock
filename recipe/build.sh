@@ -27,11 +27,4 @@ $SRC_DIR/configure \
     --with-python=${PYTHON} \
     --with-system-gdbinit="$PREFIX/etc/gdbinit" || (cat config.log && exit 1)
 make -j${CPU_COUNT}  VERBOSE=1
-
-pushd gdb/testsuite
-make  site.exp
-echo  "set gdb_test_timeout 120" >> site.exp
-runtest
-popd
-
 make install
