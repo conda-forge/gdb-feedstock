@@ -28,7 +28,7 @@ $SRC_DIR/configure \
     --with-system-gdbinit="$PREFIX/etc/gdbinit" || (cat config.log && exit 1)
 make -j${CPU_COUNT}  VERBOSE=1
 
-pushd ../gdb/testsuite
+pushd gdb/testsuite
 make  site.exp
 echo  "set gdb_test_timeout 120" >> site.exp
 runtest
