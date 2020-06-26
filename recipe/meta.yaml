@@ -1,5 +1,5 @@
 {% set name = "gdb" %}
-{% set version = "8.3.1" %}
+{% set version = "9.2" %}
 
 package:
   name: {{ name }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: http://ftp.gnu.org/gnu/gdb/gdb-{{ version }}.tar.xz
-  sha256: 1e55b4d7cdca7b34be12f4ceae651623aa73b2fd640152313f9f66a7149757c4
+  sha256: 360cd7ae79b776988e89d8f9a01c985d0b1fa21c767a4295e5f88cb49175c555
 
 build:
-  number: 1
+  number: 0
   skip: True  # [win or osx]
 
 requirements:
