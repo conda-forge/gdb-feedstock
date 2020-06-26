@@ -27,7 +27,7 @@ cd build
 $SRC_DIR/configure \
     --prefix="$PREFIX" \
     --with-separate-debug-dir="$PREFIX/lib/debug:/usr/lib/debug" \
-    --with-python \
+    --with-python=${PYTHON} \
     --with-system-gdbinit="$PREFIX/etc/gdbinit" || (cat config.log && exit 1)
 make -j${CPU_COUNT}
 make install
