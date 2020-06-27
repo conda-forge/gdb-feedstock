@@ -1,5 +1,20 @@
 #!/bin/bash
 
+# Download the right script to debug python processes.
+# This is an useful script provided by CPython project to help debugging
+# crashes in Python processes.
+# See https://devguide.python.org/gdb for some
+# examples on how to use it.
+#
+# Normally someone needs to download this script manually and properly
+# setup gdb to load it (if you are lucky gdb was compiled with python
+# support).
+#
+# Providing this in conda-forge's gdb makes the experience much smoother,
+# avoiding all the hassles someone can find when trying to configure gdb
+# for that.
+curl -SL https://raw.githubusercontent.com/python/cpython/$PY_VER/Tools/gdb/libpython.py \
+    > "$SP_DIR/libpython.py"
 
 # Install a gdbinit file that will be automatically loaded
 mkdir -p "$PREFIX/etc"
