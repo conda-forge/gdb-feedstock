@@ -8,10 +8,15 @@ package:
 source:
   url: http://ftp.gnu.org/gnu/gdb/gdb-{{ version }}.tar.xz
   sha256: 360cd7ae79b776988e89d8f9a01c985d0b1fa21c767a4295e5f88cb49175c555
+  patches:
+    - 0001-darwin-nat.c-do-not-hang-on-long-gone-thread.patch
 
 build:
-  number: 2
-  skip: True  # [win or osx]
+  number: 3
+  skip: True  # [win]
+  # needed by macOS codesigning script
+  script_env:
+   - TMPDIR
 
 requirements:
   build:
@@ -26,22 +31,28 @@ requirements:
     - xz
     - zlib
     - readline
+    - libiconv  # [osx]
+    - expat     # [osx]
   run:
     - python
     - ncurses
     - xz
     - zlib
     - six
+    - libiconv  # [osx]
+    - expat     # [osx]
 
 test:
   commands:
     - gdb --version
+  requires:
+    - {{ compiler('c') }}
 
 about:
   home: https://www.gnu.org/software/gdb/
-  license: GPL-2.0-only
+  license: GPL-3.0-only
   license_family: GPL
-  license_file: COPYING
+  license_file: gdb/COPYING
   summary: GDB, the GNU Project debugger, allows you to see what is going on inside another program while it executes -- or what another program was doing at the moment it crashed.
   description: |
     GDB, the GNU Project debugger, allows you to see what is going on `inside'
