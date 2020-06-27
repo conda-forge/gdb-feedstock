@@ -38,6 +38,7 @@ if [[ $target_platform == "osx-64" ]]; then
   # install needed scripts to generate a codesigning certificate and sign the gdb executable
   cp $RECIPE_DIR/macos-codesign/macos-setup-codesign.sh $PREFIX/bin/
   cp $RECIPE_DIR/macos-codesign/macos-codesign-gdb.sh   $PREFIX/bin/
+  cp $RECIPE_DIR/macos-codesign/macos-show-caveats.sh   $PREFIX/bin/
   # copy the entitlement file
   mkdir -p $PREFIX/etc/gdb
   cp $RECIPE_DIR/macos-codesign/gdb-entitlement.xml $PREFIX/etc/gdb/
