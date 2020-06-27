@@ -31,9 +31,11 @@ pin_run_as_build:
   zlib:
     max_pin: x.x
 python:
-- 3.7.* *_cpython
+- 3.8.* *_cpython
 readline:
 - '8.0'
+target_platform:
+- linux-64
 xz:
 - '5.2'
 zlib:
