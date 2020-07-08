@@ -1,0 +1,27 @@
+From bef2be246f3d5d3681681aba0c46751a02dc4508 Mon Sep 17 00:00:00 2001
+From: Philippe Blain <levraiphilippeblain@gmail.com>
+Date: Wed, 24 Jun 2020 16:42:31 -0400
+Subject: [PATCH] darwin-nat.c: do not hang on long-gone thread
+
+See https://sourceware.org/bugzilla/show_bug.cgi?id=24069
+
+---
+ gdb/darwin-nat.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/gdb/darwin-nat.c b/gdb/darwin-nat.c
+index 8c34aa8a3f..d30374b673 100644
+--- a/gdb/darwin-nat.c
++++ b/gdb/darwin-nat.c
+@@ -1151,7 +1151,7 @@ darwin_decode_message (mach_msg_header_t *hdr,
+ 			      res, wstatus);
+ 
+ 	      /* Looks necessary on Leopard and harmless...  */
+-	      wait4 (inf->pid, &wstatus, 0, NULL);
++	      wait4 (inf->pid, &wstatus, WNOHANG, NULL);
+ 
+ 	      inferior_ptid = ptid_t (inf->pid, 0, 0);
+ 	      return inferior_ptid;
+-- 
+2.26.2
+
