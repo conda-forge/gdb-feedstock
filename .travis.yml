@@ -3,27 +3,43 @@
 
 language: generic
 
-env:
-  global:
-    # The BINSTAR_TOKEN secure variable. This is defined canonically in conda-forge.yml.
-    - secure: "wuJaSX/imX8Xf5Gp1H/tFmqrx1rsNrvpUf/1SzCFku7pU1YgwzVVktUMy64APFaIGLywNyBCSeU/7wEujjutJk5SZJ3wURQusPnNZ7pbsOPFpLnbTCtLdFyXj2c/hy9cBN6elkwt+2YyIMUJJtsTlMjp0rUfw8Uq8jgk3MHChr0Jfxj7kenQeXLcpXZseCs2ucvBKIHtwp19kY95CkQ99VXfFD1lDV92SqwPuYbF0FVIMFixTHmoSPTdFbGR3HR0oGC4fXO6GiK8WjtibETq2etIaL1RaJee3ZQOpZi0F6dI05663YsEqkmnSK5e0rimLuDAzve6kBMq6SlZV20L2/Vljw0qcNr/qpAp3pb5hEP/g8dHA9jE0qq339V/XxE9we3IaRmdcX5Gou6DWE6vlen6L4WQxoJWjiwVg0viD0A8RZnIb91M9IPfM4WgHpTLpNJeWHgDul/sQROzwfk2hO97trXNu0BsUkdQXzqRxSg7p8w2Yj8v3Rar+TmAHYrj/O01vM2b01dteRZS2zZLHW+VePLB954hH57hyQ1JJw9b2y6zVxoPM8e2HotdivdIOvqLyZTIhmmJjeFyynmKwNSy2BYXzqdY8ZBnB9lxi+ELan71uD6A1AmOOx64x519VqFUTGpXH0sadstq/omBqQC9nbyQag0bJYR51tERC14="
+
 
 matrix:
   include:
-    - env: CONFIG=osx_python3.6.____cpythontarget_platformosx-64 UPLOAD_PACKAGES=True PLATFORM=osx-64
+    - env: CONFIG=osx_64_fortran_compiler_version7python3.6.____cpythontarget_platformosx-64 UPLOAD_PACKAGES=True PLATFORM=osx-64
       os: osx
-      osx_image: xcode9.4
+      osx_image: xcode12u
+      arch: amd64
 
-    - env: CONFIG=osx_python3.7.____cpythontarget_platformosx-64 UPLOAD_PACKAGES=True PLATFORM=osx-64
+    - env: CONFIG=osx_64_fortran_compiler_version7python3.7.____cpythontarget_platformosx-64 UPLOAD_PACKAGES=True PLATFORM=osx-64
       os: osx
-      osx_image: xcode9.4
+      osx_image: xcode12u
+      arch: amd64
 
-    - env: CONFIG=osx_python3.8.____cpythontarget_platformosx-64 UPLOAD_PACKAGES=True PLATFORM=osx-64
+    - env: CONFIG=osx_64_fortran_compiler_version7python3.8.____cpythontarget_platformosx-64 UPLOAD_PACKAGES=True PLATFORM=osx-64
       os: osx
-      osx_image: xcode9.4
+      osx_image: xcode12u
+      arch: amd64
+
+    - env: CONFIG=osx_64_fortran_compiler_version9python3.6.____cpythontarget_platformosx-64 UPLOAD_PACKAGES=True PLATFORM=osx-64
+      os: osx
+      osx_image: xcode12u
+      arch: amd64
+
+    - env: CONFIG=osx_64_fortran_compiler_version9python3.7.____cpythontarget_platformosx-64 UPLOAD_PACKAGES=True PLATFORM=osx-64
+      os: osx
+      osx_image: xcode12u
+      arch: amd64
+
+    - env: CONFIG=osx_64_fortran_compiler_version9python3.8.____cpythontarget_platformosx-64 UPLOAD_PACKAGES=True PLATFORM=osx-64
+      os: osx
+      osx_image: xcode12u
+      arch: amd64
 
 script:
   - export CI=travis
   - export GIT_BRANCH="$TRAVIS_BRANCH"
+  - export FEEDSTOCK_NAME=$(basename ${TRAVIS_REPO_SLUG})
 
   - if [[ ${PLATFORM} =~ .*osx.* ]]; then ./.scripts/run_osx_build.sh; fi
