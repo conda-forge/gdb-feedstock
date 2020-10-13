@@ -68,6 +68,13 @@ Current build status
                 </a>
               </td>
             </tr><tr>
+              <td>linux_64_c_compiler_version7cxx_compiler_version7fortran_compiler_version7python3.9.____cpythontarget_platformlinux-64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3908&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gdb-feedstock?branchName=master&jobName=linux&configuration=linux_64_c_compiler_version7cxx_compiler_version7fortran_compiler_version7python3.9.____cpythontarget_platformlinux-64" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
               <td>linux_64_c_compiler_version9cxx_compiler_version9fortran_compiler_version9python3.6.____cpythontarget_platformlinux-64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3908&branchName=master">
@@ -86,6 +93,13 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3908&branchName=master">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gdb-feedstock?branchName=master&jobName=linux&configuration=linux_64_c_compiler_version9cxx_compiler_version9fortran_compiler_version9python3.8.____cpythontarget_platformlinux-64" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_64_c_compiler_version9cxx_compiler_version9fortran_compiler_version9python3.9.____cpythontarget_platformlinux-64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3908&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gdb-feedstock?branchName=master&jobName=linux&configuration=linux_64_c_compiler_version9cxx_compiler_version9fortran_compiler_version9python3.9.____cpythontarget_platformlinux-64" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -110,6 +124,13 @@ Current build status
                 </a>
               </td>
             </tr><tr>
+              <td>osx_64_fortran_compiler_version7python3.9.____cpythontarget_platformosx-64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3908&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gdb-feedstock?branchName=master&jobName=osx&configuration=osx_64_fortran_compiler_version7python3.9.____cpythontarget_platformosx-64" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
               <td>osx_64_fortran_compiler_version9python3.6.____cpythontarget_platformosx-64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3908&branchName=master">
@@ -128,6 +149,13 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3908&branchName=master">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gdb-feedstock?branchName=master&jobName=osx&configuration=osx_64_fortran_compiler_version9python3.8.____cpythontarget_platformosx-64" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_fortran_compiler_version9python3.9.____cpythontarget_platformosx-64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3908&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gdb-feedstock?branchName=master&jobName=osx&configuration=osx_64_fortran_compiler_version9python3.9.____cpythontarget_platformosx-64" alt="variant">
                 </a>
               </td>
             </tr>

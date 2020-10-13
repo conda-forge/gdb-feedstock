@@ -20,6 +20,10 @@ jobs:
         CONFIG: linux_64_c_compiler_version7cxx_compiler_version7fortran_compiler_version7python3.8.____cpythontarget_platformlinux-64
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: condaforge/linux-anvil-comp7
+      linux_64_c_compiler_version7cxx_compiler_version7fortran_compiler_version7python3.9.____cpythontarget_platformlinux-64:
+        CONFIG: linux_64_c_compiler_version7cxx_compiler_version7fortran_compiler_version7python3.9.____cpythontarget_platformlinux-64
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: condaforge/linux-anvil-comp7
       linux_64_c_compiler_version9cxx_compiler_version9fortran_compiler_version9python3.6.____cpythontarget_platformlinux-64:
         CONFIG: linux_64_c_compiler_version9cxx_compiler_version9fortran_compiler_version9python3.6.____cpythontarget_platformlinux-64
         UPLOAD_PACKAGES: 'True'
@@ -32,7 +36,10 @@ jobs:
         CONFIG: linux_64_c_compiler_version9cxx_compiler_version9fortran_compiler_version9python3.8.____cpythontarget_platformlinux-64
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: condaforge/linux-anvil-comp7
-    maxParallel: 8
+      linux_64_c_compiler_version9cxx_compiler_version9fortran_compiler_version9python3.9.____cpythontarget_platformlinux-64:
+        CONFIG: linux_64_c_compiler_version9cxx_compiler_version9fortran_compiler_version9python3.9.____cpythontarget_platformlinux-64
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: condaforge/linux-anvil-comp7
   timeoutInMinutes: 360
 
   steps:
