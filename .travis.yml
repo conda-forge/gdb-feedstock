@@ -7,34 +7,44 @@ language: generic
 
 matrix:
   include:
+    - env: CONFIG=osx_64_fortran_compiler_version7python3.6.____73_pypytarget_platformosx-64 UPLOAD_PACKAGES=True PLATFORM=osx-64
+      os: osx
+      osx_image: xcode12u
+      arch: amd64
+
     - env: CONFIG=osx_64_fortran_compiler_version7python3.6.____cpythontarget_platformosx-64 UPLOAD_PACKAGES=True PLATFORM=osx-64
       os: osx
-      osx_image: xcode10.1
+      osx_image: xcode12u
       arch: amd64
 
     - env: CONFIG=osx_64_fortran_compiler_version7python3.7.____cpythontarget_platformosx-64 UPLOAD_PACKAGES=True PLATFORM=osx-64
       os: osx
-      osx_image: xcode10.1
+      osx_image: xcode12u
       arch: amd64
 
     - env: CONFIG=osx_64_fortran_compiler_version7python3.8.____cpythontarget_platformosx-64 UPLOAD_PACKAGES=True PLATFORM=osx-64
       os: osx
-      osx_image: xcode10.1
+      osx_image: xcode12u
+      arch: amd64
+
+    - env: CONFIG=osx_64_fortran_compiler_version9python3.6.____73_pypytarget_platformosx-64 UPLOAD_PACKAGES=True PLATFORM=osx-64
+      os: osx
+      osx_image: xcode12u
       arch: amd64
 
     - env: CONFIG=osx_64_fortran_compiler_version9python3.6.____cpythontarget_platformosx-64 UPLOAD_PACKAGES=True PLATFORM=osx-64
       os: osx
-      osx_image: xcode10.1
+      osx_image: xcode12u
       arch: amd64
 
     - env: CONFIG=osx_64_fortran_compiler_version9python3.7.____cpythontarget_platformosx-64 UPLOAD_PACKAGES=True PLATFORM=osx-64
       os: osx
-      osx_image: xcode10.1
+      osx_image: xcode12u
       arch: amd64
 
     - env: CONFIG=osx_64_fortran_compiler_version9python3.8.____cpythontarget_platformosx-64 UPLOAD_PACKAGES=True PLATFORM=osx-64
       os: osx
-      osx_image: xcode10.1
+      osx_image: xcode12u
       arch: amd64
 
 script:
