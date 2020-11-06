@@ -24,6 +24,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - make >=3.82
+    - libcxx 10.*
   host:
     - python
     - ncurses
