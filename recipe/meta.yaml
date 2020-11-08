@@ -12,7 +12,7 @@ source:
     - 0001-darwin-nat.c-do-not-hang-on-long-gone-thread.patch
 
 build:
-  number: 4
+  number: 5
   skip: True  # [win]
   # needed by macOS codesigning script
   script_env:
@@ -24,6 +24,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - make >=3.82
+    - libcxx 10.*
   host:
     - python
     - ncurses
