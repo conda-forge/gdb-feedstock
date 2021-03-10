@@ -7,32 +7,22 @@ language: generic
 
 matrix:
   include:
-    - env: CONFIG=osx_64_fortran_compiler_version7python3.6.____cpython UPLOAD_PACKAGES=True PLATFORM=osx-64
+    - env: CONFIG=osx_64_python3.6.____cpython UPLOAD_PACKAGES=True PLATFORM=osx-64
       os: osx
       osx_image: xcode9.4
       arch: amd64
 
-    - env: CONFIG=osx_64_fortran_compiler_version7python3.7.____cpython UPLOAD_PACKAGES=True PLATFORM=osx-64
+    - env: CONFIG=osx_64_python3.7.____73_pypy UPLOAD_PACKAGES=True PLATFORM=osx-64
       os: osx
       osx_image: xcode9.4
       arch: amd64
 
-    - env: CONFIG=osx_64_fortran_compiler_version7python3.8.____cpython UPLOAD_PACKAGES=True PLATFORM=osx-64
+    - env: CONFIG=osx_64_python3.7.____cpython UPLOAD_PACKAGES=True PLATFORM=osx-64
       os: osx
       osx_image: xcode9.4
       arch: amd64
 
-    - env: CONFIG=osx_64_fortran_compiler_version9python3.6.____cpython UPLOAD_PACKAGES=True PLATFORM=osx-64
-      os: osx
-      osx_image: xcode9.4
-      arch: amd64
-
-    - env: CONFIG=osx_64_fortran_compiler_version9python3.7.____cpython UPLOAD_PACKAGES=True PLATFORM=osx-64
-      os: osx
-      osx_image: xcode9.4
-      arch: amd64
-
-    - env: CONFIG=osx_64_fortran_compiler_version9python3.8.____cpython UPLOAD_PACKAGES=True PLATFORM=osx-64
+    - env: CONFIG=osx_64_python3.8.____cpython UPLOAD_PACKAGES=True PLATFORM=osx-64
       os: osx
       osx_image: xcode9.4
       arch: amd64
