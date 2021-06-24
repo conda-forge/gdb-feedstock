@@ -13,7 +13,7 @@ cxx_compiler:
 cxx_compiler_version:
 - '11'
 expat:
-- '2.2'
+- '2'
 fortran_compiler:
 - gfortran
 fortran_compiler_version:
@@ -25,8 +25,6 @@ macos_machine:
 ncurses:
 - '6.2'
 pin_run_as_build:
-  expat:
-    max_pin: x.x
   libiconv:
     max_pin: x.x
   ncurses:
@@ -43,7 +41,7 @@ pin_run_as_build:
 python:
 - 3.6.* *_cpython
 readline:
-- '8.0'
+- '8'
 target_platform:
 - osx-64
 xz:
