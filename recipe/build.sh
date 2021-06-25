@@ -53,6 +53,8 @@ if [[ $target_platform == "osx-64" ]]; then
 fi
 
 export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
+export CXXFLAGS="${CXXFLAGS} -std=gnu++17"
+
 # Setting /usr/lib/debug as debug dir makes it possible to debug the system's
 # python on most Linux distributions
 
