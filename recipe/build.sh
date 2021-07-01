@@ -50,9 +50,12 @@ if [[ $target_platform == "osx-64" ]]; then
   # Copy the activate script to the installation prefix
   mkdir -p "${PREFIX}/etc/conda/activate.d"
   cp $RECIPE_DIR/activate.sh "${PREFIX}/etc/conda/activate.d/${PKG_NAME}_activate.sh"
+  export CXXFLAGS="${CXXFLAGS} -fno-blocks -D_LIBCPP_DISABLE_AVAILABILITY"
 fi
 
 export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
+export CXXFLAGS="${CXXFLAGS} -std=gnu++17"
+
 # Setting /usr/lib/debug as debug dir makes it possible to debug the system's
 # python on most Linux distributions
 
