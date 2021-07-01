@@ -31,13 +31,14 @@ requirements:
     - m2-make        # [win]
   host:
     - python
-    - ncurses   # [not win]
-    - texinfo   # [not win]
+    - ncurses     # [not win]
+    - m2-ncurses  # [win]
+    - texinfo     # [not win]
     - xz
     - zlib
-    - readline  # [not win]
-    - libiconv  # [osx]
-    - expat     # [osx]
+    - readline    # [not win]
+    - libiconv    # [osx]
+    - expat       # [osx]
   run:
     - python
     - ncurses
