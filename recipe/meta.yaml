@@ -12,8 +12,8 @@ source:
     - 0001-darwin-nat.c-do-not-hang-on-long-gone-thread.patch
 
 build:
-  number: 0
-  skip: True  # [win]
+  number: 1
+  # skip: True  # [win]
   # needed by macOS codesigning script
   script_env:
    - TMPDIR
@@ -23,14 +23,19 @@ requirements:
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - make >=3.82
+    - make >=3.82    # [not win]
+    - m2-base        # [win]
+    - m2-bash        # [win]
+    - m2-curl        # [win]
+    - m2-filesystem  # [win]
+    - m2-make        # [win]
   host:
     - python
-    - ncurses
-    - texinfo
+    - ncurses   # [not win]
+    - texinfo   # [not win]
     - xz
     - zlib
-    - readline
+    - readline  # [not win]
     - libiconv  # [osx]
     - expat     # [osx]
   run:
