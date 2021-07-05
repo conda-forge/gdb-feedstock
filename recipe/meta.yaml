@@ -41,12 +41,13 @@ requirements:
     - expat       # [osx]
   run:
     - python
-    - ncurses
+    - ncurses     # [not win]
+    - m2-ncurses  # [win]
     - xz
     - zlib
     - six
-    - libiconv  # [osx]
-    - expat     # [osx]
+    - libiconv    # [osx]
+    - expat       # [osx]
 
 test:
   commands:
