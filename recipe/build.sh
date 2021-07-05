@@ -53,6 +53,10 @@ if [[ $target_platform == "osx-64" ]]; then
   export CXXFLAGS="${CXXFLAGS} -fno-blocks -D_LIBCPP_DISABLE_AVAILABILITY"
 fi
 
+# Define empty variables if unset to avoid error on Windows
+if [ -z ${CPPFLAGS+x} ]; then export CPPFLAGS=""; fi
+if [ -z ${CXXFLAGS+x} ]; then export CXXFLAGS=""; fi
+
 export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
 export CXXFLAGS="${CXXFLAGS} -std=gnu++17"
 
