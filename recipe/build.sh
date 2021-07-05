@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eu
+set -eux
 
 # Download the right script to debug python processes.
 # This is an useful script provided by CPython project to help debugging
