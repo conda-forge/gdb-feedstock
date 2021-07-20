@@ -36,6 +36,11 @@ if [[ $(uname) == "Darwin" ]]; then
   exit 0
 fi
 
+if [[ $(uname -m) == "ppc64le" ]]; then
+  # Skip Python test on ppc64le due to missing debug symbols
+  exit 0
+fi
+
 gdb -batch -ex "run" -ex "py-bt" --args python "$RECIPE_DIR/testing/process_to_debug.py" | tee gdb_output
 if [[ "$CONDA_PY" != "27" ]]; then
     grep "built-in method kill" gdb_output
