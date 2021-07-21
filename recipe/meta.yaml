@@ -21,8 +21,9 @@ requirements:
   build:
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}  # [not win]
+    - {{ compiler('gcc') }}  # [win]
     - {{ compiler('cxx') }}  # [not win]
-    - {{ compiler('m2w64_cxx') }}  # [win]
+    - {{ compiler('gxx') }}  # [win]
     - make >=3.82    # [not win]
     - m2-base        # [win]
     - m2-bash        # [win]
