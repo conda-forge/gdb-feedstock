@@ -30,6 +30,7 @@ requirements:
     - m2-curl        # [win]
     - m2-filesystem  # [win]
     - m2-diffutils   # [win]
+    - m2-texinfo     # [win]
   host:
     - python
     - ncurses     # [not win]
