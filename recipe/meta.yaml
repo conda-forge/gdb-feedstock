@@ -22,7 +22,7 @@ requirements:
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}          # [not win]
     - {{ compiler('cxx') }}        # [not win]
-    - {{ compiler('m2w64_cxx') }}  # [win]
+    - m2w64-gcc                    # [win]
     - make >=3.82    # [not win]
     - m2-make        # [win]
     - m2-base        # [win]
