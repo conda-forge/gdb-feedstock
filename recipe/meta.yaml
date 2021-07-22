@@ -20,15 +20,15 @@ build:
 requirements:
   build:
     - {{ compiler('fortran') }}
-    - {{ compiler('c') }}  # [not win]
-    - {{ compiler('cxx') }}  # [not win]
-    - {{ compiler('m2w64-gcc') }}  # [win]
+    - {{ compiler('c') }}          # [not win]
+    - {{ compiler('cxx') }}        # [not win]
+    - {{ compiler('m2w64_cxx') }}  # [win]
     - make >=3.82    # [not win]
+    - m2-make        # [win]
     - m2-base        # [win]
     - m2-bash        # [win]
     - m2-curl        # [win]
     - m2-filesystem  # [win]
-    - m2-make        # [win]
   host:
     - python
     - ncurses     # [not win]
