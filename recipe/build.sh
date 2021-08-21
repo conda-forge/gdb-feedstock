@@ -60,15 +60,19 @@ if [ -z ${CXXFLAGS+x} ]; then export CXXFLAGS=""; fi
 export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
 export CXXFLAGS="${CXXFLAGS} -std=gnu++17"
 
-# Setting /usr/lib/debug as debug dir makes it possible to debug the system's
-# python on most Linux distributions
+# on Windows use gdb's defaults for debugdir
+if [[ $target_platform != "win-64" ]]; then
+  # Setting /usr/lib/debug as debug dir makes it possible to debug the system's
+  # python on most Linux distributions
+  debugdir_flag="--with-separate-debug-dir=$PREFIX/lib/debug:/usr/lib/debug"
+fi
 
 mkdir build
 cd build
 
 $SRC_DIR/configure \
     --prefix="$PREFIX" \
-    --with-separate-debug-dir="$PREFIX/lib/debug:/usr/lib/debug" \
+    ${debugdir_flag:-} \
     --with-python=${PYTHON} \
     --with-system-gdbinit="$PREFIX/etc/gdbinit" \
     ${libiconv_flag:-} \
