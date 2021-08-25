@@ -65,6 +65,9 @@ if [[ $target_platform != "win-64" ]]; then
   # Setting /usr/lib/debug as debug dir makes it possible to debug the system's
   # python on most Linux distributions
   debugdir_flag="--with-separate-debug-dir=$PREFIX/lib/debug:/usr/lib/debug"
+else
+  # Force gdb to pick ws2tcpip.h is picked instead of netdb.h etc. - ./configure logic seems broken
+  export CPPFLAGS="$CPPFLAGS -DUSE_WIN32API"
 fi
 
 mkdir build
