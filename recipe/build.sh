@@ -56,6 +56,7 @@ fi
 # Define empty variables if unset to avoid error on Windows
 if [ -z ${CPPFLAGS+x} ]; then export CPPFLAGS=""; fi
 if [ -z ${CXXFLAGS+x} ]; then export CXXFLAGS=""; fi
+if [ -z ${LDFLAGS+x} ]; then export LDFLAGS=""; fi
 
 export CPPFLAGS="$CPPFLAGS -I$PREFIX/include"
 export CXXFLAGS="${CXXFLAGS} -std=gnu++17"
@@ -68,6 +69,7 @@ if [[ $target_platform != "win-64" ]]; then
 else
   # Force gdb to pick ws2tcpip.h is picked instead of netdb.h etc. - ./configure logic seems broken
   export CPPFLAGS="$CPPFLAGS -DUSE_WIN32API"
+  export LDFLAGS="$LDFLAGS -lwsock32 -lws2_32"
 fi
 
 mkdir build
