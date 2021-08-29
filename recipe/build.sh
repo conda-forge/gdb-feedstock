@@ -83,6 +83,6 @@ $SRC_DIR/configure \
     ${libiconv_flag:-} \
     ${expat_flag:-} \
     || (cat config.log && exit 1)
-make -j${CPU_COUNT} VERBOSE=1
+make -j${CPU_COUNT} V=1 -O
 make install
 
