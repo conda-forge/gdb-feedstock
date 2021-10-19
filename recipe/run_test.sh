@@ -70,3 +70,6 @@ else
 fi
 
 grep "Program received signal SIGSEGV" gdb_output
+
+# Check source code highlighting works (using Pygments)
+gdb -ex "show style sources" -batch | grep "enabled"
