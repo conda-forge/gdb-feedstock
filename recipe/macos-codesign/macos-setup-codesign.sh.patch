@@ -1,0 +1,25 @@
+--- macos-setup-codesign.sh	2020-06-13 20:43:24.000000000 -0400
++++ recipe/macos-codesign/macos-setup-codesign.sh	2020-06-13 20:47:52.000000000 -0400
+@@ -1,9 +1,11 @@
+ #!/bin/bash
+ 
+-CERT="lldb_codesign"
++# This script is copied from https://github.com/llvm/llvm-project/blob/master/lldb/scripts/macos-setup-codesign.sh
++
++CERT="gdb_codesign"
+ 
+ function error() {
+-    echo error: "$@"
++    echo error: "$@" 1>&2
+     exit 1
+ }
+ 
+@@ -36,7 +38,7 @@
+ extendedKeyUsage   = critical,codeSigning
+ EOF
+ 
+-echo Generating and installing lldb_codesign certificate
++echo Generating and installing gdb_codesign certificate
+ 
+ # Generate a new certificate
+ openssl req -new -newkey rsa:2048 -x509 -days 3650 -nodes -config "$TMPDIR/$CERT.tmpl" -extensions codesign_reqext -batch -out "$TMPDIR/$CERT.cer" -keyout "$TMPDIR/$CERT.key" > /dev/null 2>&1
