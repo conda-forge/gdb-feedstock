@@ -18,6 +18,8 @@ fortran_compiler:
 - gfortran
 fortran_compiler_version:
 - '9'
+gmp:
+- '6'
 libiconv:
 - '1.16'
 macos_machine:
@@ -25,6 +27,8 @@ macos_machine:
 ncurses:
 - '6.2'
 pin_run_as_build:
+  gmp:
+    max_pin: x
   libiconv:
     max_pin: x.x
   ncurses:
