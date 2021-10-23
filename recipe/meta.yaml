@@ -1,5 +1,5 @@
 {% set name = "gdb" %}
-{% set version = "10.2" %}
+{% set version = "11.1" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: http://ftp.gnu.org/gnu/gdb/gdb-{{ version }}.tar.xz
-  sha256: aaa1223d534c9b700a8bec952d9748ee1977513f178727e1bee520ee000b4f29
+  sha256: cccfcc407b20d343fb320d4a9a2110776dd3165118ffd41f4b1b162340333f94
   patches:
     - 0001-darwin-nat.c-do-not-hang-on-long-gone-thread.patch
 
@@ -24,6 +24,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - make >=3.82
+    - sysroot_linux-64 2.17  # [linux64]
   host:
     - python
     - ncurses
@@ -33,6 +34,7 @@ requirements:
     - readline
     - libiconv  # [osx]
     - expat     # [osx]
+    - gmp
   run:
     - python
     - ncurses

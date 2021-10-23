@@ -18,9 +18,13 @@ fortran_compiler:
 - gfortran
 fortran_compiler_version:
 - '9'
+gmp:
+- '6'
 ncurses:
 - '6.2'
 pin_run_as_build:
+  gmp:
+    max_pin: x
   ncurses:
     max_pin: x.x
   python:
