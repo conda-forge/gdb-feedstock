@@ -11,4 +11,4 @@ $CONDA_PREFIX/bin/macos-setup-codesign.sh
 # and https://github.com/conda-forge/clang-compiler-activation-feedstock/pull/19
 unset CODESIGN_ALLOCATE
 # Sign the GDB binary
-codesign --entitlements $CONDA_PREFIX/etc/gdb/gdb-entitlement.xml --force --sign gdb_codesign $CONDA_PREFIX/bin/gdb
+/usr/bin/codesign --entitlements $CONDA_PREFIX/etc/gdb/gdb-entitlement.xml --force --sign gdb_codesign $CONDA_PREFIX/bin/gdb
