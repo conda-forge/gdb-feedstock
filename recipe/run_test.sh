@@ -4,6 +4,7 @@
 if [[ $(uname) == "Darwin" ]]; then
   sudo /usr/sbin/DevToolsSecurity -enable
   sudo security authorizationdb write system.privilege.taskport allow
+  echo 'set startup-with-shell off' > $HOME/.gdbinit
 fi
 
 # Run hello world test
