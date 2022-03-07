@@ -1,0 +1,57 @@
+From 0d327446e0493851a3700109deb95b1fb05f7a18 Mon Sep 17 00:00:00 2001
+From: Dominique Quatravaux via Gdb-patches <gdb-patches@sourceware.org>
+Date: Thu, 8 Apr 2021 21:14:48 +0200
+Subject: [PATCH] Skip over WIFSTOPPED wait4 status
+
+On modern Darwin's, there appears to be a new circumstance in which a
+MACH_NOTIFY_DEAD_NAME message can be received, and which was not
+previously accounted for: to signal the WIFSTOPPED condition in the
+debuggee. In that case the debuggee is not dead yet (and in fact,
+counting it as dead would cause a zombie leak - A process in such a
+state reparents to PID 1, but cannot be killed).
+
+- Read and ignore such messages (counting on the next exception
+message to let us know of the inferior's new state again)
+- Refactor logging so as to clearly distinguish between the three
+MACH_NOTIFY_DEAD_NAME cases (WIFEXITED, WIFSTOPPED, signal)
+
+diff --git a/gdb/darwin-nat.c b/gdb/darwin-nat.c
+index 9c6423ceb02..cbe36eba626 100644
+--- a/gdb/darwin-nat.c
++++ b/gdb/darwin-nat.c
+@@ -1053,7 +1053,7 @@ darwin_nat_target::decode_message (mach_msg_header_t *hdr,
+     }
+   else if (hdr->msgh_id == 0x48)
+     {
+-      /* MACH_NOTIFY_DEAD_NAME: notification for exit.  */
++      /* MACH_NOTIFY_DEAD_NAME: notification for exit *or* WIFSTOPPED.  */
+       int res;
+ 
+       res = darwin_decode_notify_message (hdr, &inf);
+@@ -1096,16 +1096,23 @@ darwin_nat_target::decode_message (mach_msg_header_t *hdr,
+ 		{
+ 		  status->kind = TARGET_WAITKIND_EXITED;
+ 		  status->value.integer = WEXITSTATUS (wstatus);
++		  inferior_debug (4, _("darwin_wait: pid=%d exit, status=0x%x\n"),
++				  res_pid, wstatus);
++		}
++	      else if (WIFSTOPPED (wstatus))
++		{
++		  status->kind = TARGET_WAITKIND_IGNORE;
++		  inferior_debug (4, _("darwin_wait: pid %d received WIFSTOPPED\n"), res_pid);
++		  return minus_one_ptid;
+ 		}
+ 	      else
+ 		{
+ 		  status->kind = TARGET_WAITKIND_SIGNALLED;
+ 		  status->value.sig = gdb_signal_from_host (WTERMSIG (wstatus));
++		  inferior_debug (4, _("darwin_wait: pid=%d received signal %d\n"),
++			      res_pid, status->value.sig);
+ 		}
+ 
+-	      inferior_debug (4, _("darwin_wait: pid=%d exit, status=0x%x\n"),
+-			      res_pid, wstatus);
+-
+ 	      return ptid_t (inf->pid);
+ 	    }
+ 	  else
