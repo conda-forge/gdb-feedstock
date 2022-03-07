@@ -7,6 +7,9 @@ if [[ $(uname) == "Darwin" ]]; then
   echo 'set startup-with-shell off' > $HOME/.gdbinit
 fi
 
+# Check source code highlighting works (using Pygments)
+gdb -ex "show style sources" -batch | grep "enabled"
+
 # Run hello world test
 $CC -o hello -g "$RECIPE_DIR/testing/hello.c"
 gdb -batch -ex "run" --args hello
@@ -77,5 +80,3 @@ fi
 
 grep "Program received signal SIGSEGV" gdb_output
 
-# Check source code highlighting works (using Pygments)
-gdb -ex "show style sources" -batch | grep "enabled"
