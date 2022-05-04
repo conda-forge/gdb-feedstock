@@ -1,5 +1,5 @@
 provider:
-  linux_ppc64le: default
+  linux_ppc64le: travis
 conda_forge_output_validation: true
 os_version:
   linux_64: cos7
