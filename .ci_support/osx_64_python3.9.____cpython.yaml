@@ -25,13 +25,11 @@ libiconv:
 macos_machine:
 - x86_64-apple-darwin13.4.0
 ncurses:
-- '6.2'
+- '6'
 pin_run_as_build:
   gmp:
     max_pin: x
   libiconv:
-    max_pin: x.x
-  ncurses:
     max_pin: x.x
   python:
     min_pin: x.x
