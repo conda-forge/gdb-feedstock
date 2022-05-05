@@ -39,7 +39,7 @@ if [[ $(uname) == "Darwin" ]]; then
 	needs to be codesigned to be able to control other processes.
 
 	The codesigning process requires the Command Line Tools
-	(or a full XCode installation). 
+	(or a full Xcode installation). 
 	To install the Command Line Tools, run
 	
 	  xcode-select --install
@@ -71,7 +71,11 @@ if [[ $(uname) == "Darwin" ]]; then
 
 	  sudo dscl . merge /Groups/_developer GroupMembership $USER
 	
-	To avoid being prompted for any password, run
+	To avoid being prompted for any password, run:
+
+	  sudo DevToolsSecurity -enable
+
+	On older systems you might also need:
 
 	  sudo security authorizationdb write system.privilege.taskport allow
 
@@ -88,7 +92,7 @@ if [[ $(uname) == "Darwin" ]]; then
 	
 	  During startup program terminated with signal ?, Unknown signal
 	
-	simply try to \`run\` your executable again, it should work eventually.
+	or if GDB hangs, simply kill it and try to \`run\` your executable again, it should work eventually.
 	EOF
     fi
     # Tell the user how to show this message again
