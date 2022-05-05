@@ -9,14 +9,20 @@ sudo -ln | \grep -q '(ALL) NOPASSWD: ALL'
 }
 
 # Return X in macOS version 10.X.Y
-get_macos_version () {
-sw_vers -productVersion | sed -e 's/10.\([0-9][0-9]\)\.[0-9]/\1/'
+get_macos_min_version () {
+sw_vers -productVersion | awk -F . '{print $2}'
 }
 
-# Returns 0 if macOS version is Mojave or Catalina
-on_mojave_or_catalina () {
-macos_version=$(get_macos_version)
-if [ $macos_version  == '14' ] || [ $macos_version == '15' ] ; then
+# Return A in macOS version A.X.Y
+get_macos_maj_version () {
+sw_vers -productVersion | awk -F . '{print $1}'
+}
+
+# Returns 0 if macOS version is Mojave or later
+on_mojave_or_later () {
+macos_min_version=$(get_macos_min_version)
+macos_maj_version=$(get_macos_maj_version)
+if [ $macos_min_version  == '14' ] || [ $macos_min_version == '15' ] || [ $macos_maj_version != '10' ]; then
   return 0
 else
   return 1
@@ -80,8 +86,8 @@ if [[ $(uname) == "Darwin" ]]; then
 	  sudo security authorizationdb write system.privilege.taskport allow
 
 	EOF
-    # If on Mojave or Catalina, warn users about the "Unknown signal" error
-    if on_mojave_or_catalina; then
+    # If on Mojave or later, warn users about GDB PR 24069
+    if on_mojave_or_later; then
     cat <<-EOF >> $PREFIX/.messages.txt
 	Intermittent GDB error on Mojave and later
 	------------------------------------------
