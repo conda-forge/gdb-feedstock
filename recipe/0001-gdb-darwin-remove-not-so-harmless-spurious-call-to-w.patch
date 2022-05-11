@@ -1,0 +1,45 @@
+From 9cca177baec32a1ed1422a87a1f57cda2d2eb21a Mon Sep 17 00:00:00 2001
+From: Dominique Quatravaux <dominique.quatravaux@epfl.ch>
+Date: Wed, 16 Feb 2022 09:15:39 -0500
+Subject: [PATCH] gdb/darwin: remove not-so-harmless spurious call to `wait4`
+
+As seen in https://sourceware.org/bugzilla/show_bug.cgi?id=24069 this
+code will typically wait4() a second time on the same process that was
+already wait4()'d a few lines above. While this used to be
+harmless/idempotent (when we assumed that the process already exited),
+this now causes a deadlock in the WIFSTOPPED case.
+
+The early (~2019) history of bug #24069 cautiously suggests to use
+WNOHANG instead of outright deleting the call. However, tests on the
+current version of Darwin (Big Sur) demonstrate that gdb runs just fine
+without a redundant call to wait4(), as would be expected.
+Notwithstanding the debatable value of conserving bug compatibility with
+an OS release that is more than a decade old, there is scant evidence of
+what that double-wait4() was supposed to achieve in the first place - A
+cursory investigation with `git blame` pinpoints commits bb00b29d7802
+and a80b95ba67e2 from the 2008-2009 era, but fails to answer the
+"why" question conclusively.
+
+Co-Authored-By: Philippe Blain <levraiphilippeblain@gmail.com>
+Change-Id: Id4e4415d66d6ff6b3552b60d761693f17015e4a0
+---
+ gdb/darwin-nat.c | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/gdb/darwin-nat.c b/gdb/darwin-nat.c
+index d96ce1a6c65..8b0ecfd5b77 100644
+--- a/gdb/darwin-nat.c
++++ b/gdb/darwin-nat.c
+@@ -1113,9 +1113,6 @@ darwin_nat_target::decode_message (mach_msg_header_t *hdr,
+ 	      inferior_debug (4, _("darwin_wait: pid=%d exit, status=0x%x\n"),
+ 			      res_pid, wstatus);
+ 
+-	      /* Looks necessary on Leopard and harmless...  */
+-	      wait4 (inf->pid, &wstatus, 0, NULL);
+-
+ 	      return ptid_t (inf->pid);
+ 	    }
+ 	  else
+-- 
+2.32.0.dirty
+

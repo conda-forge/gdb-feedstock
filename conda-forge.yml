@@ -1,9 +1,6 @@
 provider:
-  osx: travis
-  linux_ppc64le: default
+  linux_ppc64le: travis
 conda_forge_output_validation: true
-travis:
-  osx_image: xcode9.4
 os_version:
   linux_64: cos7
 github:

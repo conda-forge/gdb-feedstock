@@ -45,8 +45,12 @@ openssl req -new -newkey rsa:2048 -x509 -days 3650 -nodes -config "$TMPDIR/$CERT
 [ $? -eq 0 ] || error Something went wrong when generating the certificate
 
 # Install the certificate in the system keychain
+sudo security authorizationdb read com.apple.trust-settings.admin > "$TMPDIR/rights"
+sudo security authorizationdb write com.apple.trust-settings.admin allow
 sudo security add-trusted-cert -d -r trustRoot -p codeSign -k /Library/Keychains/System.keychain "$TMPDIR/$CERT.cer" > /dev/null 2>&1
-[ $? -eq 0 ] || error Something went wrong when installing the certificate
+result=$?
+sudo security authorizationdb write com.apple.trust-settings.admin < "$TMPDIR/rights"
+[ $result -eq 0 ] || error Something went wrong when installing the certificate
 
 # Install the key for the certificate in the system keychain
 sudo security import "$TMPDIR/$CERT.key" -A -k /Library/Keychains/System.keychain > /dev/null 2>&1
