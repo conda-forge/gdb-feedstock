@@ -13,7 +13,7 @@ source:
     - 0002-gdb-darwin-skip-over-WIFSTOPPED-wait4-status.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   # needed by macOS codesigning script
   script_env:
