@@ -3,7 +3,7 @@ MACOSX_DEPLOYMENT_TARGET:
 c_compiler:
 - clang
 c_compiler_version:
-- '11'
+- '14'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -11,17 +11,17 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '11'
+- '14'
 expat:
 - '2'
 fortran_compiler:
 - gfortran
 fortran_compiler_version:
-- '9'
+- '11'
 gmp:
 - '6'
 libiconv:
-- '1.16'
+- '1.17'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 ncurses:
