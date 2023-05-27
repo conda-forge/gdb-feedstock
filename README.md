@@ -1,11 +1,11 @@
-About gdb
-=========
+About gdb-feedstock
+===================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gdb-feedstock/blob/main/LICENSE.txt)
 
 Home: https://www.gnu.org/software/gdb/
 
 Package license: GPL-3.0-only
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gdb-feedstock/blob/main/LICENSE.txt)
 
 Summary: GDB, the GNU Project debugger, allows you to see what is going on inside another program while it executes -- or what another program was doing at the moment it crashed.
 
