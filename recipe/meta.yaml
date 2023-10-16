@@ -27,6 +27,7 @@ requirements:
   host:
     - python
     - ncurses
+    - setuptools
     - texinfo
     - xz
     - zlib
