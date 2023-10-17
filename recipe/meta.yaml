@@ -27,22 +27,23 @@ requirements:
   host:
     - python
     - ncurses
-    - setuptools
+    - setuptools             # [py>=312]
     - texinfo
     - xz
     - zlib
     - readline
-    - libiconv  # [osx]
-    - expat     # [osx]
+    - libiconv               # [osx]
+    - expat                  # [osx]
     - gmp
   run:
     - python
     - ncurses
+    - setuptools             # [py>=312]
     - xz
     - zlib
     - six
-    - libiconv  # [osx]
-    - expat     # [osx]
+    - libiconv               # [osx]
+    - expat                  # [osx]
     - pygments
 
 test:
