@@ -1,4 +1,6 @@
-#!/usr/bin/env bash -ex
+#!/bin/bash
+
+set -ex
 
 # Make sure we are not prompted for a password before running an executable in GDB on macOS
 if [[ $(uname) == "Darwin" ]]; then
@@ -42,8 +44,8 @@ if [[ $(uname) == "Darwin" ]]; then
   exit 0
 fi
 
-if [[ $(uname -m) == "ppc64le" ]]; then
-  # Skip Python test on ppc64le due to missing debug symbols
+if [[ $(uname -m) == "ppc64le" || $(uname -m) == "aarch64" ]]; then
+  # Skip Python test on ppc64le/aarch64 due to missing debug symbols
   exit 0
 fi
 

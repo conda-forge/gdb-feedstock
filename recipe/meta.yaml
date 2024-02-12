@@ -47,7 +47,7 @@ requirements:
 
 test:
   commands:
-    - gdb --version
+    - $PREFIX/bin/gdb --version
   requires:
     - {{ compiler('c') }}
 
