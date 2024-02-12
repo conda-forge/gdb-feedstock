@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: http://ftp.gnu.org/gnu/gdb/gdb-{{ version }}.tar.xz
+  url: https://ftp.gnu.org/gnu/gdb/gdb-{{ version }}.tar.xz
   sha256: d66df51276143451fcbff464cc8723d68f1e9df45a6a2d5635a54e71643edb80
   patches:
 
@@ -34,6 +34,7 @@ requirements:
     - libiconv  # [osx]
     - expat     # [osx]
     - gmp
+    - mpfr
   run:
     - python
     - ncurses
@@ -72,3 +73,4 @@ extra:
     - gqmelo
     - marcelotrevisani
     - phil-blain
+    - matthiasdiener
