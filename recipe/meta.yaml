@@ -1,13 +1,13 @@
 {% set name = "gdb" %}
-{% set version = "12.1" %}
+{% set version = "14.1" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: http://ftp.gnu.org/gnu/gdb/gdb-{{ version }}.tar.xz
-  sha256: 0e1793bf8f2b54d53f46dea84ccfd446f48f81b297b28c4f7fc017b818d69fed
+  url: https://ftp.gnu.org/gnu/gdb/gdb-{{ version }}.tar.xz
+  sha256: d66df51276143451fcbff464cc8723d68f1e9df45a6a2d5635a54e71643edb80
   patches:
 
 build:
@@ -34,6 +34,7 @@ requirements:
     - libiconv  # [osx]
     - expat     # [osx]
     - gmp
+    - mpfr
   run:
     - python
     - ncurses
@@ -72,3 +73,4 @@ extra:
     - gqmelo
     - marcelotrevisani
     - phil-blain
+    - matthiasdiener
