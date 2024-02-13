@@ -67,9 +67,11 @@ insufficient_debug_info_versions=("312")
 
 if [[ " ${insufficient_debug_info_versions[@]} " =~ " ${CONDA_PY} " ]]; then
     if grep "line 3" gdb_output; then
-        echo "This test was expected to fail due to missing debug info in python"
-        echo "As it passed the test should be re-enabled"
-        exit 1
+        if grep "built-in method kill" gdb_output; then
+            echo "This test was expected to fail due to missing debug info in python"
+            echo "As it passed the test should be re-enabled"
+            exit 1
+        fi
     fi
 else
     # We are lucky! This Python version has enough debug info for us to easily identify
