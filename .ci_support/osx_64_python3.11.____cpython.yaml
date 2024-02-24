@@ -24,6 +24,8 @@ libiconv:
 - '1'
 macos_machine:
 - x86_64-apple-darwin13.4.0
+mpfr:
+- '4'
 ncurses:
 - '6'
 pin_run_as_build:
