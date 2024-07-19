@@ -65,10 +65,17 @@ if [[ "${BUILD_WITH_CONDA_DEBUG:-0}" == 1 ]]; then
     # Drop into an interactive shell
     /bin/bash
 else
-    conda build "${RECIPE_ROOT}" -m "${CI_SUPPORT}/${CONFIG}.yaml" \
+    conda-build "${RECIPE_ROOT}" -m "${CI_SUPPORT}/${CONFIG}.yaml" \
         --suppress-variables ${EXTRA_CB_OPTIONS:-} \
         --clobber-file "${CI_SUPPORT}/clobber_${CONFIG}.yaml" \
         --extra-meta flow_run_id="${flow_run_id:-}" remote_url="${remote_url:-}" sha="${sha:-}"
+
+    ( startgroup "Inspecting artifacts" ) 2> /dev/null
+
+    # inspect_artifacts was only added in conda-forge-ci-setup 4.6.0
+    command -v inspect_artifacts >/dev/null 2>&1 && inspect_artifacts || echo "inspect_artifacts needs conda-forge-ci-setup >=4.6.0"
+
+    ( endgroup "Inspecting artifacts" ) 2> /dev/null
     ( startgroup "Validating outputs" ) 2> /dev/null
 
     validate_recipe_outputs "${FEEDSTOCK_NAME}"
