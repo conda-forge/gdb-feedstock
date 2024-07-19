@@ -33,8 +33,6 @@ end
 
 # macOS specificities
 if [[ $target_platform == "osx-64" ]]; then
-  # prevent a VERSION file being confused by clang++ with $CONDA_PREFIX/include/c++/v1/version
-  mv intl/VERSION intl/VERSION.txt
   # install needed scripts to generate a codesigning certificate and sign the gdb executable
   cp $RECIPE_DIR/macos-codesign/macos-setup-codesign.sh $PREFIX/bin/
   cp $RECIPE_DIR/macos-codesign/macos-codesign-gdb.sh   $PREFIX/bin/
