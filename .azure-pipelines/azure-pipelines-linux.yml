@@ -20,8 +20,8 @@ jobs:
         CONFIG: linux_64_python3.12.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-      linux_64_python3.8.____cpython:
-        CONFIG: linux_64_python3.8.____cpython
+      linux_64_python3.13.____cp313:
+        CONFIG: linux_64_python3.13.____cp313
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
       linux_64_python3.9.____cpython:

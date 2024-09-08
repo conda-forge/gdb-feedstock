@@ -63,7 +63,7 @@ gdb -batch -ex "run" -ex "py-bt" --args python "$RECIPE_DIR/testing/process_to_d
 # debugged out-of-the-box with this gdb package. When things change, there is not much to be
 # done besides adding or removing versions from this list.
 # Example: insufficient_debug_info_versions=("27" "37")
-insufficient_debug_info_versions=("312")
+insufficient_debug_info_versions=("312" "313")
 
 if [[ " ${insufficient_debug_info_versions[@]} " =~ " ${CONDA_PY} " ]]; then
     if grep "line 3" gdb_output; then
