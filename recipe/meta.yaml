@@ -1,5 +1,5 @@
 {% set name = "gdb" %}
-{% set version = "15.1" %}
+{% set version = "16.2" %}
 
 package:
   name: {{ name }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://ftp.gnu.org/gnu/gdb/gdb-{{ version }}.tar.xz
-  sha256: 38254eacd4572134bca9c5a5aa4d4ca564cbbd30c369d881f733fb6b903354f2
+  sha256: 4002cb7f23f45c37c790536a13a720942ce4be0402d929c9085e92f10d480119
   patches:
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win]
   # needed by macOS codesigning script
   script_env:
