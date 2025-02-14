@@ -1,11 +1,14 @@
-provider:
-  linux_ppc64le: travis
-  linux_aarch64: default
+build_platform:
+  osx_arm64: osx_64
+conda_build:
+  pkg_format: '2'
 conda_forge_output_validation: true
-os_version:
-  linux_64: cos7
 github:
   branch_name: main
   tooling_branch_name: main
-conda_build:
-  pkg_format: '2'
+os_version:
+  linux_64: cos7
+provider:
+  linux_aarch64: default
+  linux_ppc64le: travis
+test: native_and_emulated
