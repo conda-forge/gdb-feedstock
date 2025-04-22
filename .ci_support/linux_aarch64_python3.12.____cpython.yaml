@@ -17,13 +17,15 @@ cxx_compiler:
 cxx_compiler_version:
 - '13'
 docker_image:
-- quay.io/condaforge/linux-anvil-aarch64:alma9
+- quay.io/condaforge/linux-anvil-x86_64:alma9
 fortran_compiler:
 - gfortran
 fortran_compiler_version:
 - '13'
 gmp:
 - '6'
+liblzma_devel:
+- '5'
 mpfr:
 - '4'
 ncurses:
@@ -38,8 +40,6 @@ readline:
 - '8'
 target_platform:
 - linux-aarch64
-xz:
-- '5'
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version

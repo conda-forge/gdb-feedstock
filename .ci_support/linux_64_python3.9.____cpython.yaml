@@ -24,6 +24,8 @@ fortran_compiler_version:
 - '13'
 gmp:
 - '6'
+liblzma_devel:
+- '5'
 mpfr:
 - '4'
 ncurses:
@@ -38,8 +40,6 @@ readline:
 - '8'
 target_platform:
 - linux-64
-xz:
-- '5'
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
