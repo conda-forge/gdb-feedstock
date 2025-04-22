@@ -65,6 +65,7 @@ $SRC_DIR/configure \
     --with-separate-debug-dir="$PREFIX/lib/debug:/usr/lib/debug" \
     --with-python=${PYTHON} \
     --with-system-gdbinit="$PREFIX/etc/gdbinit" \
+    --with-system-zlib \
     ${libiconv_flag:-} \
     ${expat_flag:-} \
     || (cat config.log && exit 1)
