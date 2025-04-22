@@ -9,11 +9,15 @@ if [[ $(uname) == "Darwin" ]]; then
   echo 'set startup-with-shell off' > $HOME/.gdbinit
 fi
 
-# Disabling address space randomization does not work in some Docker configurations
-echo "set disable-randomization off" >> $HOME/.gdbinit
-
 # Check source code highlighting works (using Pygments)
 gdb -ex "show style sources" -batch | grep "enabled"
+
+
+if [[ $(uname -m) == "ppc64le" || $(uname -m) == "aarch64" ]]; then
+  # Emulated docker images do not provide sufficient support for gdb
+  # https://github.com/docker/for-mac/issues/5191
+  exit 0
+fi
 
 # Run hello world test
 $CC -o hello -g "$RECIPE_DIR/testing/hello.c"
