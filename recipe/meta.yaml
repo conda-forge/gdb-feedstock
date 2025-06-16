@@ -11,7 +11,7 @@ source:
   patches:
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
   # needed by macOS codesigning script
   script_env:
@@ -34,7 +34,7 @@ requirements:
     - liblzma-devel
     - zlib
     - readline
-    - libiconv  # [osx]
+    - libiconv
     - expat     # [osx]
     - gmp
     - mpfr
@@ -44,13 +44,14 @@ requirements:
     - liblzma-devel
     - zlib
     - six
-    - libiconv  # [osx]
+    - libiconv
     - expat     # [osx]
     - pygments
 
 test:
   commands:
-    - gdb --version
+    - $PREFIX/bin/gdb --version
+    - $PREFIX/bin/gdb -q -ex "show host-charset" --batch
   requires:
     - {{ compiler('c') }}
 
@@ -69,7 +70,7 @@ about:
     same machine as GDB (native) or on another machine (remote).
     GDB can run on most popular UNIX and Microsoft Windows variants.
   doc_url: https://sourceware.org/gdb/current/onlinedocs/gdb/
-  dev_url: git://sourceware.org/git/binutils-gdb.git
+  dev_url: https://sourceware.org/git/binutils-gdb.git
 
 extra:
   recipe-maintainers:

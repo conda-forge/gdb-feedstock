@@ -9,7 +9,7 @@ Package license: GPL-3.0-only
 
 Summary: GDB, the GNU Project debugger, allows you to see what is going on inside another program while it executes -- or what another program was doing at the moment it crashed.
 
-Development: git://sourceware.org/git/binutils-gdb.git
+Development: https://sourceware.org/git/binutils-gdb.git
 
 Documentation: https://sourceware.org/gdb/current/onlinedocs/gdb/
 
