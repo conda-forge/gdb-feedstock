@@ -51,6 +51,7 @@ requirements:
 test:
   commands:
     - $PREFIX/bin/gdb --version
+    - $PREFIX/bin/gdb -q -ex "show host-charset" --batch
 
 about:
   home: https://www.gnu.org/software/gdb/
@@ -67,7 +68,7 @@ about:
     same machine as GDB (native) or on another machine (remote).
     GDB can run on most popular UNIX and Microsoft Windows variants.
   doc_url: https://sourceware.org/gdb/current/onlinedocs/gdb/
-  dev_url: git://sourceware.org/git/binutils-gdb.git
+  dev_url: https://sourceware.org/git/binutils-gdb.git
 
 extra:
   recipe-maintainers:
