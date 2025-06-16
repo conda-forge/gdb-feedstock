@@ -43,7 +43,7 @@ if [[ $target_platform == osx-* ]]; then
   # copy the entitlement file
   mkdir -p $PREFIX/etc/gdb
   cp $RECIPE_DIR/macos-codesign/gdb-entitlement.xml $PREFIX/etc/gdb/
-  # add libiconv and expat flags
+  # add expat flag
   expat_flag="--with-libexpat-prefix=$PREFIX"
   # Setup the necessary GDB startup command for macOS Sierra and later
   echo "set startup-with-shell off" >> "$PREFIX/etc/gdbinit"
