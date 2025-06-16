@@ -11,7 +11,7 @@ source:
   patches:
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
   # needed by macOS codesigning script
   script_env:
@@ -34,7 +34,7 @@ requirements:
     - liblzma-devel
     - zlib
     - readline
-    - libiconv  # [osx]
+    - libiconv
     - expat     # [osx]
     - gmp
     - mpfr
@@ -44,15 +44,13 @@ requirements:
     - liblzma-devel
     - zlib
     - six
-    - libiconv  # [osx]
+    - libiconv
     - expat     # [osx]
     - pygments
 
 test:
   commands:
-    - gdb --version
-  requires:
-    - {{ compiler('c') }}
+    - $PREFIX/bin/gdb --version
 
 about:
   home: https://www.gnu.org/software/gdb/

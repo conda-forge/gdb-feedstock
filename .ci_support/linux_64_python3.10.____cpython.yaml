@@ -24,6 +24,8 @@ fortran_compiler_version:
 - '13'
 gmp:
 - '6'
+libiconv:
+- '1'
 liblzma_devel:
 - '5'
 mpfr:

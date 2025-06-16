@@ -35,7 +35,7 @@ end
 ' >> "$PREFIX/etc/gdbinit"
 
 # macOS specificities
-if [[ $target_platform == "osx-64" ]]; then
+if [[ $target_platform == osx-* ]]; then
   # install needed scripts to generate a codesigning certificate and sign the gdb executable
   cp $RECIPE_DIR/macos-codesign/macos-setup-codesign.sh $PREFIX/bin/
   cp $RECIPE_DIR/macos-codesign/macos-codesign-gdb.sh   $PREFIX/bin/
@@ -44,7 +44,6 @@ if [[ $target_platform == "osx-64" ]]; then
   mkdir -p $PREFIX/etc/gdb
   cp $RECIPE_DIR/macos-codesign/gdb-entitlement.xml $PREFIX/etc/gdb/
   # add libiconv and expat flags
-  libiconv_flag="--with-libiconv-prefix=$PREFIX"
   expat_flag="--with-libexpat-prefix=$PREFIX"
   # Setup the necessary GDB startup command for macOS Sierra and later
   echo "set startup-with-shell off" >> "$PREFIX/etc/gdbinit"
@@ -69,9 +68,9 @@ $SRC_DIR/configure \
     --with-python=${PYTHON} \
     --with-system-gdbinit="$PREFIX/etc/gdbinit" \
     --with-system-zlib \
-    ${libiconv_flag:-} \
+    --with-libiconv-prefix=$PREFIX \
     ${expat_flag:-} \
     || (cat config.log && exit 1)
+
 make -j${CPU_COUNT} VERBOSE=1
 make install
-
