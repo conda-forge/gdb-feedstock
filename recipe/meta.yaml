@@ -6,7 +6,9 @@ package:
   version: {{ version }}
 
 source:
-  url: https://ftp.gnu.org/gnu/gdb/gdb-{{ version }}.tar.xz
+  url:
+    - https://ftp.gnu.org/gnu/gdb/gdb-{{ version }}.tar.xz
+    - https://mirrors.ocf.berkeley.edu/gnu/gdb/gdb-{{ version }}.tar.xz
   sha256: bcfcd095528a987917acf9fff3f1672181694926cc18d609c99d0042c00224c5
   patches:
 
