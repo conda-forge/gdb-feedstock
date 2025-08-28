@@ -11,7 +11,7 @@ source:
   patches:
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win]
   # needed by macOS codesigning script
   script_env:
