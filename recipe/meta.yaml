@@ -13,7 +13,7 @@ source:
   patches:
 
 build:
-  number: 3
+  number: 4
   skip: true  # [win]
   # needed by macOS codesigning script
   script_env:
@@ -40,6 +40,7 @@ requirements:
     - expat     # [osx]
     - gmp
     - mpfr
+    - zstd
   run:
     - python
     - ncurses
