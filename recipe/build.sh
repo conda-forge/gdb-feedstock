@@ -19,7 +19,7 @@ set -eux
 # avoiding all the hassles someone can find when trying to configure gdb
 # for that.
 curl -SL https://raw.githubusercontent.com/python/cpython/$PY_VER/Tools/gdb/libpython.py \
-    > "$SP_DIR/libpython.py"
+    > "$SP_DIR/gdb_libpython.py"
 
 # Install a gdbinit file that will be automatically loaded
 mkdir -p "$PREFIX/etc"
@@ -29,7 +29,7 @@ import gdb
 import sys
 import os
 def setup_python(event):
-    import libpython
+    import gdb_libpython
 gdb.events.new_objfile.connect(setup_python)
 end
 ' >> "$PREFIX/etc/gdbinit"
@@ -74,3 +74,7 @@ $SRC_DIR/configure \
 
 make -j${CPU_COUNT} VERBOSE=1
 make install
+
+# remove bfd includes and static libraries as they are statically linked in
+rm -rf $PREFIX/include
+rm -rf $PREFIX/lib/lib*.a
