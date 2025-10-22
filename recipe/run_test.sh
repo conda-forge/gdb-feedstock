@@ -19,9 +19,14 @@ if [[ $(uname -m) == "ppc64le" || $(uname -m) == "aarch64" ]]; then
 fi
 
 # Run hello world test
-# TODO: Remove mold usage once https://github.com/conda-forge/binutils-feedstock/issues/97
-# is done.
-$CC -o hello -g -gz=zstd -fuse-ld=mold "$RECIPE_DIR/testing/hello.c"
+if [[ $(uname) == "Darwin" && $(uname -m) == "x86_64" ]]; then
+  # `-fuse-ld=mold` not supported on macOS x86-64
+  $CC -o hello -g "$RECIPE_DIR/testing/hello.c"
+else
+  # TODO: Remove mold usage once https://github.com/conda-forge/binutils-feedstock/issues/97
+  # is done.
+  $CC -o hello -g -gz=zstd -fuse-ld=mold "$RECIPE_DIR/testing/hello.c"
+fi
 gdb -batch -ex "run" --args hello
 
 # This next test tries to simulate a crash on a python process. The process under test
