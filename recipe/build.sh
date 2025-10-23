@@ -68,6 +68,7 @@ $SRC_DIR/configure \
     --with-python=${PYTHON} \
     --with-system-gdbinit="$PREFIX/etc/gdbinit" \
     --with-system-zlib \
+    --with-zstd=yes \
     --with-libiconv-prefix=$PREFIX \
     ${expat_flag:-} \
     || (cat config.log && exit 1)
