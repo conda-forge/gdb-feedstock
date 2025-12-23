@@ -1,0 +1,24 @@
+From 06bca63c29e82f05e58ef0a5bd5c535f7f1ab41f Mon Sep 17 00:00:00 2001
+From: Jindrich Makovicka <makovick@gmail.com>
+Date: Mon, 22 Dec 2025 16:22:08 +0100
+Subject: [PATCH] darwin-nat.c: Add missing include
+
+---
+ gdb/darwin-nat.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/gdb/darwin-nat.c b/gdb/darwin-nat.c
+index 665e617fd2f..47a8c3e2752 100644
+--- a/gdb/darwin-nat.c
++++ b/gdb/darwin-nat.c
+@@ -64,6 +64,7 @@
+ 
+ #include "darwin-nat.h"
+ #include "filenames.h"
++#include "gdbsupport/common-inferior.h"
+ #include "gdbsupport/filestuff.h"
+ #include "gdbsupport/gdb_unlinker.h"
+ #include "gdbsupport/pathstuff.h"
+-- 
+2.51.0
+
