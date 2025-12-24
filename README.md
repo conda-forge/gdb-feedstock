@@ -344,6 +344,7 @@ Feedstock Maintainers
 =====================
 
 * [@gqmelo](https://github.com/gqmelo/)
+* [@jmakovicka](https://github.com/jmakovicka/)
 * [@marcelotrevisani](https://github.com/marcelotrevisani/)
 * [@matthiasdiener](https://github.com/matthiasdiener/)
 * [@phil-blain](https://github.com/phil-blain/)
