@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eu
+set -e
 
 # Returns 0 if current user is in the sudoers file
 # and sudo-ing does not require a password.
