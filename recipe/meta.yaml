@@ -60,7 +60,6 @@ test:
     - $PREFIX/bin/gdb -q -ex "show host-charset" --batch
   requires:
     - {{ compiler('c') }}
-    - mold
 
 about:
   home: https://www.gnu.org/software/gdb/
