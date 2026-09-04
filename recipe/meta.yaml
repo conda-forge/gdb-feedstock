@@ -14,7 +14,7 @@ source:
     - 0003-darwin-nat.c-Add-missing-include.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   # needed by macOS codesigning script
   script_env:
