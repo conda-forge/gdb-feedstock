@@ -15,7 +15,7 @@ source:
 
 build:
   number: 1
-  skip: true  # [win]
+  skip: true  # [win or target_platform == "osx-arm64"]
   # needed by macOS codesigning script
   script_env:
     - TMPDIR
