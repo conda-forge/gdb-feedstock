@@ -33,6 +33,7 @@ requirements:
     - pkg-config
   host:
     - python
+    - libpython
     - ncurses
     - texinfo
     - liblzma-devel
@@ -45,6 +46,7 @@ requirements:
     - zstd
   run:
     - python
+    - libpython
     - ncurses
     - liblzma-devel
     - zlib
