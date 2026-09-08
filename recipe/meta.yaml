@@ -14,8 +14,8 @@ source:
     - 0003-darwin-nat.c-Add-missing-include.patch
 
 build:
-  number: 0
-  skip: true  # [win]
+  number: 1
+  skip: true  # [win or target_platform == "osx-arm64"]
   # needed by macOS codesigning script
   script_env:
     - TMPDIR
@@ -33,6 +33,7 @@ requirements:
     - pkg-config
   host:
     - python
+    - libpython
     - ncurses
     - texinfo
     - liblzma-devel
@@ -45,6 +46,7 @@ requirements:
     - zstd
   run:
     - python
+    - libpython
     - ncurses
     - liblzma-devel
     - zlib
