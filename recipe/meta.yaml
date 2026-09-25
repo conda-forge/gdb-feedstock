@@ -1,5 +1,5 @@
 {% set name = "gdb" %}
-{% set version = "17.2" %}
+{% set version = "18.1" %}
 
 package:
   name: {{ name }}
@@ -9,12 +9,12 @@ source:
   url:
     - https://ftp.gnu.org/gnu/gdb/gdb-{{ version }}.tar.xz
     - https://mirrors.ocf.berkeley.edu/gnu/gdb/gdb-{{ version }}.tar.xz
-  sha256: 1c036c0d72e4b3d1fb5c94c88632add6f9d76f4d7c4d2ea793c12a9f19a3228c
+  sha256: cd9fc3fe2b47743840e42c1592d3d87f8302eb18639c0b8b4ba0898002e2348f
   patches:
     - 0003-darwin-nat.c-Add-missing-include.patch
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win or target_platform == "osx-arm64"]
   # needed by macOS codesigning script
   script_env:
