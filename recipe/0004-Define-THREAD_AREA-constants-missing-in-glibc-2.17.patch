@@ -1,0 +1,26 @@
+From ed09b29b26ed7e3a8c933a5931acde48f6bdb7bb Mon Sep 17 00:00:00 2001
+From: Jindrich Makovicka <makovick@gmail.com>
+Date: Sat, 26 Sep 2026 09:26:22 +0200
+Subject: [PATCH] Define THREAD_AREA constants missing in glibc 2.17
+
+---
+ gdb/nat/x86-linux.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/gdb/nat/x86-linux.c b/gdb/nat/x86-linux.c
+index 16391dcde24..0806c044043 100644
+--- a/gdb/nat/x86-linux.c
++++ b/gdb/nat/x86-linux.c
+@@ -193,6 +193,9 @@ x86_check_ssp_support (const int tid)
+ 
+ /* See nat/x86-linux.h.  */
+ 
++#define PTRACE_GET_THREAD_AREA    25
++#define PTRACE_SET_THREAD_AREA    26
++
+ bool
+ i386_ptrace_get_tls_data (int pid, gdb::array_view<user_desc> buffer)
+ {
+-- 
+2.55.0
+

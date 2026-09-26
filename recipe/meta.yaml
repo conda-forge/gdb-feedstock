@@ -12,6 +12,7 @@ source:
   sha256: cd9fc3fe2b47743840e42c1592d3d87f8302eb18639c0b8b4ba0898002e2348f
   patches:
     - 0003-darwin-nat.c-Add-missing-include.patch
+    - 0004-Define-THREAD_AREA-constants-missing-in-glibc-2.17.patch
 
 build:
   number: 0
