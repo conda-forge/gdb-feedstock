@@ -38,7 +38,7 @@ requirements:
     - ${{ stdlib("c") }}
     - ${{ compiler('cxx') }}
     - make >=3.82
-    - pkg-config
+    - pkgconf
   host:
     - python
     - libpython
